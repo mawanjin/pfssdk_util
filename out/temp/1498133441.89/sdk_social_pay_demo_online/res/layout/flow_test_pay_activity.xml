@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_gravity="center" android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="wrap_content" android:isScrollContainer="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="5.0dip">
+        <LinearLayout style="@style/flow_test_pay_border_layout">
+            <LinearLayout style="@style/flow_test_pay_layout">
+                <TextView android:textColor="@android:color/black" android:text="@string/access_token" style="@style/flow_test_pay_textview" />
+                <EditText android:textColor="@android:color/black" android:textColorHint="#ff999999" android:id="@id/value_access_token" android:inputType="none" style="@style/flow_test_pay_edittext" />
+            </LinearLayout>
+            <LinearLayout style="@style/flow_test_pay_layout">
+                <TextView android:textColor="@android:color/black" android:text="@string/qihoo_user_id" style="@style/flow_test_pay_textview" />
+                <EditText android:enabled="false" android:textColor="@android:color/black" android:textColorHint="#ff999999" android:id="@id/value_qihoo_user_id" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:inputType="none" style="@style/flow_test_pay_edittext" />
+            </LinearLayout>
+            <LinearLayout style="@style/flow_test_pay_layout">
+                <TextView android:textColor="@android:color/black" android:text="@string/app_key" style="@style/flow_test_pay_textview" />
+                <EditText android:enabled="false" android:textColor="@android:color/black" android:textColorHint="#ff999999" android:id="@id/value_app_key" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:inputType="none" style="@style/flow_test_pay_edittext" />
+            </LinearLayout>
+            <LinearLayout style="@style/flow_test_pay_layout">
+                <TextView android:textColor="@android:color/black" android:text="@string/private_key" style="@style/flow_test_pay_textview" />
+                <EditText android:enabled="false" android:textColor="@android:color/black" android:textColorHint="#ff999999" android:id="@id/value_private_key" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:inputType="none" style="@style/flow_test_pay_edittext" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout style="@style/flow_test_pay_border_layout">
+            <LinearLayout style="@style/flow_test_pay_layout">
+                <TextView android:textColor="@android:color/black" android:text="@string/amount" style="@style/flow_test_pay_textview" />
+                <EditText android:textColor="@android:color/black" android:textColorHint="#ff999999" android:id="@id/value_amount" android:inputType="numberDecimal" style="@style/flow_test_pay_edittext" />
+            </LinearLayout>
+            <LinearLayout style="@style/flow_test_pay_layout">
+                <TextView android:textColor="@android:color/black" android:text="@string/exchange_rate" style="@style/flow_test_pay_textview" />
+                <EditText android:textColor="@android:color/black" android:textColorHint="#ff999999" android:id="@id/value_exchange_rate" android:inputType="numberDecimal" style="@style/flow_test_pay_edittext" />
+            </LinearLayout>
+            <LinearLayout style="@style/flow_test_pay_layout">
+                <TextView android:textColor="@android:color/black" android:text="@string/product_name" style="@style/flow_test_pay_textview" />
+                <EditText android:textColor="@android:color/black" android:textColorHint="#ff999999" android:id="@id/value_product_name" android:hint="@string/demo_pay_product_name" android:inputType="text" style="@style/flow_test_pay_edittext" />
+            </LinearLayout>
+            <LinearLayout style="@style/flow_test_pay_layout">
+                <TextView android:textColor="@android:color/black" android:text="@string/product_id" style="@style/flow_test_pay_textview" />
+                <EditText android:textColor="@android:color/black" android:textColorHint="#ff999999" android:id="@id/value_product_id" android:inputType="numberDecimal" style="@style/flow_test_pay_edittext" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:background="@drawable/layout_border" android:padding="2.0dip" android:layout_margin="2.0dip" style="@style/flow_test_pay_layout">
+            <TextView android:textColor="@android:color/black" android:text="@string/notify_uri" style="@style/flow_test_pay_textview" />
+            <EditText android:textColor="@android:color/black" android:textColorHint="#ff999999" android:id="@id/value_notify_uri" android:inputType="textUri" style="@style/flow_test_pay_edittext" />
+        </LinearLayout>
+        <LinearLayout style="@style/flow_test_pay_border_layout">
+            <LinearLayout style="@style/flow_test_pay_layout">
+                <TextView android:textColor="@android:color/black" android:text="@string/test_app_name" style="@style/flow_test_pay_textview" />
+                <EditText android:textColor="@android:color/black" android:textColorHint="#ff999999" android:id="@id/value_app_name" android:hint="@string/demo_pay_app_name" android:inputType="text" style="@style/flow_test_pay_edittext" />
+            </LinearLayout>
+            <LinearLayout style="@style/flow_test_pay_layout">
+                <TextView android:textColor="@android:color/black" android:text="@string/app_user_name" style="@style/flow_test_pay_textview" />
+                <EditText android:textColor="@android:color/black" android:textColorHint="#ff999999" android:id="@id/value_app_user_name" android:hint="@string/demo_pay_app_user_name" android:inputType="text" style="@style/flow_test_pay_edittext" />
+            </LinearLayout>
+            <LinearLayout style="@style/flow_test_pay_layout">
+                <TextView android:textColor="@android:color/black" android:text="@string/app_user_id" style="@style/flow_test_pay_textview" />
+                <EditText android:textColor="@android:color/black" android:textColorHint="#ff999999" android:id="@id/value_app_user_id" android:inputType="numberDecimal" style="@style/flow_test_pay_edittext" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout style="@style/flow_test_pay_border_layout">
+            <LinearLayout style="@style/flow_test_pay_layout">
+                <TextView android:textColor="@android:color/black" android:text="@string/app_ext_1" style="@style/flow_test_pay_textview" />
+                <EditText android:textColor="@android:color/black" android:textColorHint="#ff999999" android:id="@id/value_app_ext_1" android:hint="@string/demo_pay_app_ext1" android:inputType="text" style="@style/flow_test_pay_edittext" />
+            </LinearLayout>
+            <LinearLayout style="@style/flow_test_pay_layout">
+                <TextView android:textColor="@android:color/black" android:text="@string/app_ext_2" style="@style/flow_test_pay_textview" />
+                <EditText android:textColor="@android:color/black" android:textColorHint="#ff999999" android:id="@id/value_app_ext_2" android:hint="@string/demo_pay_app_ext2" android:inputType="text" style="@style/flow_test_pay_edittext" />
+            </LinearLayout>
+            <LinearLayout style="@style/flow_test_pay_layout">
+                <TextView android:textColor="@android:color/black" android:text="@string/app_order_id" style="@style/flow_test_pay_textview" />
+                <EditText android:textColor="@android:color/black" android:textColorHint="#ff999999" android:id="@id/value_app_order_id" android:inputType="numberDecimal" style="@style/flow_test_pay_edittext" />
+            </LinearLayout>
+        </LinearLayout>
+        <Button android:textColor="@android:color/black" android:layout_gravity="center_horizontal" android:id="@id/btn_pay" android:text="@string/pay" style="@style/demo_btn" />
+    </LinearLayout>
+</ScrollView>

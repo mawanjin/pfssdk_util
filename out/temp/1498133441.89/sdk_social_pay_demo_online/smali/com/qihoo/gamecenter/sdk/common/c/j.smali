@@ -1,0 +1,1633 @@
+.class public Lcom/qihoo/gamecenter/sdk/common/c/j;
+.super Ljava/lang/Object;
+.source "HttpsCerManager.java"
+
+
+# static fields
+.field private static final a:[B
+
+.field private static b:Lcom/qihoo/gamecenter/sdk/common/c/j;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    .prologue
+    .line 17
+    const/16 v0, 0x4f7
+
+    new-array v0, v0, [B
+
+    fill-array-data v0, :array_0
+
+    sput-object v0, Lcom/qihoo/gamecenter/sdk/common/c/j;->a:[B
+
+    .line 109
+    new-instance v0, Lcom/qihoo/gamecenter/sdk/common/c/j;
+
+    invoke-direct {v0}, Lcom/qihoo/gamecenter/sdk/common/c/j;-><init>()V
+
+    sput-object v0, Lcom/qihoo/gamecenter/sdk/common/c/j;->b:Lcom/qihoo/gamecenter/sdk/common/c/j;
+
+    return-void
+
+    .line 17
+    nop
+
+    :array_0
+    .array-data 1
+        0x30t
+        -0x7et
+        0x4t
+        -0xdt
+        0x30t
+        -0x7et
+        0x3t
+        -0x25t
+        -0x60t
+        0x3t
+        0x2t
+        0x1t
+        0x2t
+        0x2t
+        0x10t
+        0x15t
+        -0x1t
+        -0xat
+        0x15t
+        -0x64t
+        -0x6dt
+        0x7dt
+        -0x1ct
+        0x3ct
+        -0x67t
+        0x2et
+        -0x72t
+        0x3dt
+        -0x3ft
+        0x36t
+        -0x14t
+        0x30t
+        0xdt
+        0x6t
+        0x9t
+        0x2at
+        -0x7at
+        0x48t
+        -0x7at
+        -0x9t
+        0xdt
+        0x1t
+        0x1t
+        0x5t
+        0x5t
+        0x0t
+        0x30t
+        0x4ft
+        0x31t
+        0xbt
+        0x30t
+        0x9t
+        0x6t
+        0x3t
+        0x55t
+        0x4t
+        0x6t
+        0x13t
+        0x2t
+        0x43t
+        0x4et
+        0x31t
+        0x1at
+        0x30t
+        0x18t
+        0x6t
+        0x3t
+        0x55t
+        0x4t
+        0xat
+        0x13t
+        0x11t
+        0x57t
+        0x6ft
+        0x53t
+        0x69t
+        0x67t
+        0x6et
+        0x20t
+        0x43t
+        0x41t
+        0x20t
+        0x4ct
+        0x69t
+        0x6dt
+        0x69t
+        0x74t
+        0x65t
+        0x64t
+        0x31t
+        0x24t
+        0x30t
+        0x22t
+        0x6t
+        0x3t
+        0x55t
+        0x4t
+        0x3t
+        0x13t
+        0x1bt
+        0x57t
+        0x6ft
+        0x53t
+        0x69t
+        0x67t
+        0x6et
+        0x20t
+        0x43t
+        0x6ct
+        0x61t
+        0x73t
+        0x73t
+        0x20t
+        0x33t
+        0x20t
+        0x4ft
+        0x56t
+        0x20t
+        0x53t
+        0x65t
+        0x72t
+        0x76t
+        0x65t
+        0x72t
+        0x20t
+        0x43t
+        0x41t
+        0x30t
+        0x1et
+        0x17t
+        0xdt
+        0x31t
+        0x35t
+        0x30t
+        0x33t
+        0x30t
+        0x32t
+        0x30t
+        0x34t
+        0x30t
+        0x33t
+        0x32t
+        0x30t
+        0x5at
+        0x17t
+        0xdt
+        0x31t
+        0x36t
+        0x31t
+        0x32t
+        0x33t
+        0x31t
+        0x30t
+        0x34t
+        0x30t
+        0x33t
+        0x32t
+        0x30t
+        0x5at
+        0x30t
+        0x71t
+        0x31t
+        0xbt
+        0x30t
+        0x9t
+        0x6t
+        0x3t
+        0x55t
+        0x4t
+        0x6t
+        0x13t
+        0x2t
+        0x43t
+        0x4et
+        0x31t
+        0x12t
+        0x30t
+        0x10t
+        0x6t
+        0x3t
+        0x55t
+        0x4t
+        0x8t
+        0xct
+        0x9t
+        -0x1bt
+        -0x74t
+        -0x69t
+        -0x1ct
+        -0x46t
+        -0x54t
+        -0x1bt
+        -0x48t
+        -0x7et
+        0x31t
+        0x12t
+        0x30t
+        0x10t
+        0x6t
+        0x3t
+        0x55t
+        0x4t
+        0x7t
+        0xct
+        0x9t
+        -0x1bt
+        -0x74t
+        -0x69t
+        -0x1ct
+        -0x46t
+        -0x54t
+        -0x1bt
+        -0x48t
+        -0x7et
+        0x31t
+        0x27t
+        0x30t
+        0x25t
+        0x6t
+        0x3t
+        0x55t
+        0x4t
+        0xat
+        0xct
+        0x1et
+        -0x1bt
+        -0x74t
+        -0x69t
+        -0x1ct
+        -0x46t
+        -0x54t
+        -0x1bt
+        -0x5bt
+        -0x79t
+        -0x18t
+        -0x67t
+        -0x72t
+        -0x19t
+        -0x59t
+        -0x6ft
+        -0x1at
+        -0x76t
+        -0x80t
+        -0x1at
+        -0x64t
+        -0x77t
+        -0x17t
+        -0x67t
+        -0x70t
+        -0x1bt
+        -0x7bt
+        -0x54t
+        -0x1bt
+        -0x71t
+        -0x48t
+        0x31t
+        0x11t
+        0x30t
+        0xft
+        0x6t
+        0x3t
+        0x55t
+        0x4t
+        0x3t
+        0xct
+        0x8t
+        0x2at
+        0x2et
+        0x33t
+        0x36t
+        0x30t
+        0x2et
+        0x63t
+        0x6et
+        0x30t
+        -0x7et
+        0x1t
+        0x22t
+        0x30t
+        0xdt
+        0x6t
+        0x9t
+        0x2at
+        -0x7at
+        0x48t
+        -0x7at
+        -0x9t
+        0xdt
+        0x1t
+        0x1t
+        0x1t
+        0x5t
+        0x0t
+        0x3t
+        -0x7et
+        0x1t
+        0xft
+        0x0t
+        0x30t
+        -0x7et
+        0x1t
+        0xat
+        0x2t
+        -0x7et
+        0x1t
+        0x1t
+        0x0t
+        -0x37t
+        -0x4t
+        0x77t
+        -0x37t
+        0x1at
+        -0x6ft
+        0x3at
+        0x5bt
+        -0x21t
+        -0x26t
+        0x45t
+        0x56t
+        0x73t
+        -0x19t
+        -0x76t
+        0x11t
+        0x3ct
+        -0x67t
+        0x3ct
+        0x6et
+        -0x5t
+        -0x19t
+        0x73t
+        -0x39t
+        -0x4dt
+        0x43t
+        -0x7bt
+        -0x17t
+        0x19t
+        -0x7dt
+        0x21t
+        0x26t
+        0x18t
+        0x3at
+        0x53t
+        -0x4t
+        -0xbt
+        0x5bt
+        0x47t
+        0x30t
+        -0x6ct
+        -0x57t
+        -0x31t
+        -0x58t
+        0x7ct
+        0xbt
+        0x17t
+        -0x30t
+        0x11t
+        0x72t
+        0x2t
+        -0x9t
+        0x26t
+        -0x2et
+        0x48t
+        -0x2ft
+        -0x5dt
+        0x4bt
+        -0x1ft
+        0x70t
+        0x33t
+        -0x67t
+        0x47t
+        0x58t
+        0x24t
+        0x1dt
+        -0x44t
+        0x34t
+        -0x16t
+        0x1bt
+        0x7ct
+        -0x4dt
+        -0x7ft
+        0x34t
+        -0x64t
+        0x1t
+        0x48t
+        0x7dt
+        0x1ft
+        -0x3ft
+        0x7dt
+        -0x53t
+        -0x37t
+        0x54t
+        -0x11t
+        -0x30t
+        -0xet
+        -0x42t
+        -0x80t
+        -0x63t
+        -0x8t
+        0x4bt
+        -0x1ft
+        -0x9t
+        -0x74t
+        0x7at
+        -0x2ft
+        0x6et
+        0x28t
+        -0x62t
+        -0x9t
+        0x29t
+        0x56t
+        -0x58t
+        -0x7bt
+        -0x11t
+        0x1bt
+        0x5dt
+        -0x3et
+        0x35t
+        -0x3t
+        0x6t
+        -0x77t
+        0x3t
+        0x1et
+        0x79t
+        0x23t
+        0x1bt
+        -0x2dt
+        -0x6bt
+        0x77t
+        0x2bt
+        -0x4bt
+        -0x29t
+        -0x80t
+        0x2ft
+        0x46t
+        0x71t
+        -0x35t
+        0x6bt
+        0x9t
+        -0x53t
+        -0x1ft
+        -0x2ct
+        0x56t
+        -0x71t
+        0x35t
+        0x28t
+        -0x40t
+        -0xdt
+        -0x13t
+        0x25t
+        0x1dt
+        -0x6ft
+        -0xdt
+        0x34t
+        0x43t
+        0x36t
+        0x3at
+        0x7at
+        0x22t
+        0x34t
+        0x14t
+        -0x1ft
+        0x54t
+        -0x1ft
+        0x6t
+        0x5bt
+        0x41t
+        -0x3ft
+        0x7t
+        0x6ft
+        -0x26t
+        -0x45t
+        -0x35t
+        -0x42t
+        0xat
+        0x74t
+        -0x4at
+        0x1t
+        -0x16t
+        -0x53t
+        0x7t
+        0x37t
+        0xat
+        0x1ft
+        0x5dt
+        -0x80t
+        0x6t
+        -0x22t
+        0x7at
+        0x3t
+        0x2t
+        -0xat
+        -0x54t
+        -0x49t
+        -0x28t
+        0x34t
+        0x25t
+        0x1at
+        0x38t
+        -0xat
+        0x4ft
+        0x73t
+        0x16t
+        -0x6dt
+        0x2at
+        0x33t
+        -0x33t
+        0x8t
+        -0x60t
+        0x7ct
+        0x1bt
+        0x36t
+        0x34t
+        0x55t
+        0x29t
+        -0x3dt
+        0x3at
+        -0x70t
+        -0x71t
+        0x3ft
+        -0x23t
+        -0x2t
+        0x14t
+        -0x7dt
+        0x51t
+        -0x76t
+        -0x1ct
+        -0x52t
+        -0x7ft
+        0x6at
+        -0x51t
+        -0x60t
+        0x27t
+        -0x6bt
+        -0x6ct
+        0x13t
+        0x17t
+        0x7ct
+        -0x79t
+        -0x23t
+        -0x73t
+        0x5ft
+        -0x28t
+        0x3bt
+        0x5ct
+        -0x54t
+        -0x12t
+        -0x7t
+        -0x6et
+        0x27t
+        -0x6et
+        -0x45t
+        -0xbt
+        -0x58t
+        0x13t
+        -0x6at
+        -0x4t
+        0x71t
+        -0x3bt
+        0x6et
+        0x0t
+        0x4ct
+        -0x6at
+        -0x67t
+        0x2t
+        0x3t
+        0x1t
+        0x0t
+        0x1t
+        -0x5dt
+        -0x7et
+        0x1t
+        -0x59t
+        0x30t
+        -0x7et
+        0x1t
+        -0x5dt
+        0x30t
+        0xbt
+        0x6t
+        0x3t
+        0x55t
+        0x1dt
+        0xft
+        0x4t
+        0x4t
+        0x3t
+        0x2t
+        0x3t
+        -0x58t
+        0x30t
+        0x1dt
+        0x6t
+        0x3t
+        0x55t
+        0x1dt
+        0x25t
+        0x4t
+        0x16t
+        0x30t
+        0x14t
+        0x6t
+        0x8t
+        0x2bt
+        0x6t
+        0x1t
+        0x5t
+        0x5t
+        0x7t
+        0x3t
+        0x2t
+        0x6t
+        0x8t
+        0x2bt
+        0x6t
+        0x1t
+        0x5t
+        0x5t
+        0x7t
+        0x3t
+        0x1t
+        0x30t
+        0x9t
+        0x6t
+        0x3t
+        0x55t
+        0x1dt
+        0x13t
+        0x4t
+        0x2t
+        0x30t
+        0x0t
+        0x30t
+        0x1dt
+        0x6t
+        0x3t
+        0x55t
+        0x1dt
+        0xet
+        0x4t
+        0x16t
+        0x4t
+        0x14t
+        0x28t
+        0x22t
+        -0x3et
+        -0x5t
+        0x4dt
+        -0x3ft
+        0x61t
+        -0x3at
+        -0x25t
+        0x0t
+        0x1et
+        -0x34t
+        0x21t
+        -0x1ct
+        0x10t
+        -0x2dt
+        -0x1ct
+        0x8t
+        0x12t
+        0x5t
+        0x30t
+        0x1ft
+        0x6t
+        0x3t
+        0x55t
+        0x1dt
+        0x23t
+        0x4t
+        0x18t
+        0x30t
+        0x16t
+        -0x80t
+        0x14t
+        0x62t
+        0x2et
+        -0x7ft
+        -0x27t
+        -0x1dt
+        0x42t
+        0x79t
+        0x14t
+        -0x5dt
+        -0x33t
+        -0x27t
+        0x54t
+        -0x76t
+        0x6et
+        -0x8t
+        -0x22t
+        -0x6bt
+        -0x56t
+        -0x71t
+        -0x68t
+        0x30t
+        0x7ft
+        0x6t
+        0x8t
+        0x2bt
+        0x6t
+        0x1t
+        0x5t
+        0x5t
+        0x7t
+        0x1t
+        0x1t
+        0x4t
+        0x73t
+        0x30t
+        0x71t
+        0x30t
+        0x35t
+        0x6t
+        0x8t
+        0x2bt
+        0x6t
+        0x1t
+        0x5t
+        0x5t
+        0x7t
+        0x30t
+        0x1t
+        -0x7at
+        0x29t
+        0x68t
+        0x74t
+        0x74t
+        0x70t
+        0x3at
+        0x2ft
+        0x2ft
+        0x6ft
+        0x63t
+        0x73t
+        0x70t
+        0x31t
+        0x2et
+        0x77t
+        0x6ft
+        0x73t
+        0x69t
+        0x67t
+        0x6et
+        0x2et
+        0x63t
+        0x6ft
+        0x6dt
+        0x2ft
+        0x63t
+        0x6ct
+        0x61t
+        0x73t
+        0x73t
+        0x33t
+        0x2ft
+        0x73t
+        0x65t
+        0x72t
+        0x76t
+        0x65t
+        0x72t
+        0x2ft
+        0x63t
+        0x61t
+        0x31t
+        0x30t
+        0x38t
+        0x6t
+        0x8t
+        0x2bt
+        0x6t
+        0x1t
+        0x5t
+        0x5t
+        0x7t
+        0x30t
+        0x2t
+        -0x7at
+        0x2ct
+        0x68t
+        0x74t
+        0x74t
+        0x70t
+        0x3at
+        0x2ft
+        0x2ft
+        0x61t
+        0x69t
+        0x61t
+        0x31t
+        0x2et
+        0x77t
+        0x6ft
+        0x73t
+        0x69t
+        0x67t
+        0x6et
+        0x2et
+        0x63t
+        0x6ft
+        0x6dt
+        0x2ft
+        0x63t
+        0x6ct
+        0x61t
+        0x73t
+        0x73t
+        0x33t
+        0x2et
+        0x73t
+        0x65t
+        0x72t
+        0x76t
+        0x65t
+        0x72t
+        0x2et
+        0x63t
+        0x61t
+        0x31t
+        0x2et
+        0x63t
+        0x65t
+        0x72t
+        0x30t
+        0x39t
+        0x6t
+        0x3t
+        0x55t
+        0x1dt
+        0x1ft
+        0x4t
+        0x32t
+        0x30t
+        0x30t
+        0x30t
+        0x2et
+        -0x60t
+        0x2ct
+        -0x60t
+        0x2at
+        -0x7at
+        0x28t
+        0x68t
+        0x74t
+        0x74t
+        0x70t
+        0x3at
+        0x2ft
+        0x2ft
+        0x63t
+        0x72t
+        0x6ct
+        0x73t
+        0x31t
+        0x2et
+        0x77t
+        0x6ft
+        0x73t
+        0x69t
+        0x67t
+        0x6et
+        0x2et
+        0x63t
+        0x6ft
+        0x6dt
+        0x2ft
+        0x63t
+        0x61t
+        0x31t
+        0x2dt
+        0x73t
+        0x65t
+        0x72t
+        0x76t
+        0x65t
+        0x72t
+        0x2dt
+        0x33t
+        0x2et
+        0x63t
+        0x72t
+        0x6ct
+        0x30t
+        0x1bt
+        0x6t
+        0x3t
+        0x55t
+        0x1dt
+        0x11t
+        0x4t
+        0x14t
+        0x30t
+        0x12t
+        -0x7et
+        0x8t
+        0x2at
+        0x2et
+        0x33t
+        0x36t
+        0x30t
+        0x2et
+        0x63t
+        0x6et
+        -0x7et
+        0x6t
+        0x33t
+        0x36t
+        0x30t
+        0x2et
+        0x63t
+        0x6et
+        0x30t
+        0x51t
+        0x6t
+        0x3t
+        0x55t
+        0x1dt
+        0x20t
+        0x4t
+        0x4at
+        0x30t
+        0x48t
+        0x30t
+        0x8t
+        0x6t
+        0x6t
+        0x67t
+        -0x7ft
+        0xct
+        0x1t
+        0x2t
+        0x2t
+        0x30t
+        0x3ct
+        0x6t
+        0xdt
+        0x2bt
+        0x6t
+        0x1t
+        0x4t
+        0x1t
+        -0x7et
+        -0x65t
+        0x51t
+        0x1t
+        0x3t
+        0x2t
+        0x1t
+        0x2t
+        0x30t
+        0x2bt
+        0x30t
+        0x29t
+        0x6t
+        0x8t
+        0x2bt
+        0x6t
+        0x1t
+        0x5t
+        0x5t
+        0x7t
+        0x2t
+        0x1t
+        0x16t
+        0x1dt
+        0x68t
+        0x74t
+        0x74t
+        0x70t
+        0x3at
+        0x2ft
+        0x2ft
+        0x77t
+        0x77t
+        0x77t
+        0x2et
+        0x77t
+        0x6ft
+        0x73t
+        0x69t
+        0x67t
+        0x6et
+        0x2et
+        0x63t
+        0x6ft
+        0x6dt
+        0x2ft
+        0x70t
+        0x6ft
+        0x6ct
+        0x69t
+        0x63t
+        0x79t
+        0x2ft
+        0x30t
+        0xdt
+        0x6t
+        0x9t
+        0x2at
+        -0x7at
+        0x48t
+        -0x7at
+        -0x9t
+        0xdt
+        0x1t
+        0x1t
+        0x5t
+        0x5t
+        0x0t
+        0x3t
+        -0x7et
+        0x1t
+        0x1t
+        0x0t
+        0x66t
+        0x1et
+        0x29t
+        0x69t
+        0x78t
+        -0x20t
+        0x45t
+        0xct
+        0x6ct
+        -0x1dt
+        -0x78t
+        -0x10t
+        0x14t
+        0xet
+        -0x12t
+        0x71t
+        0x27t
+        -0x27t
+        0x4dt
+        0x3bt
+        0x41t
+        0x4bt
+        -0x7t
+        -0x49t
+        0x60t
+        0x32t
+        0x51t
+        0x8t
+        -0x7at
+        0x6at
+        0x4dt
+        0x4ft
+        0x16t
+        0x61t
+        0x2dt
+        0x52t
+        -0x30t
+        0x1et
+        0x1t
+        0x67t
+        0x1dt
+        0x71t
+        -0x47t
+        -0x7at
+        0x3ft
+        0x1ct
+        -0x31t
+        0x3at
+        -0x37t
+        0x5dt
+        0x24t
+        -0x27t
+        0x62t
+        0x43t
+        -0x44t
+        0x5t
+        0x0t
+        -0x54t
+        -0x53t
+        0x3bt
+        -0x9t
+        -0x41t
+        0x5t
+        -0x32t
+        0x7et
+        -0x38t
+        0x2bt
+        -0x7t
+        0x35t
+        0x73t
+        -0x1ct
+        0x55t
+        0x56t
+        -0x74t
+        0x3at
+        0x13t
+        0x74t
+        0x35t
+        0x41t
+        0x50t
+        -0x80t
+        -0x1at
+        -0x2ft
+        0x0t
+        -0x62t
+        -0x34t
+        -0x3t
+        -0x2bt
+        -0x2at
+        -0x8t
+        0xbt
+        0x43t
+        0x74t
+        0x2bt
+        0x4et
+        0x57t
+        0x19t
+        -0x5bt
+        0x1et
+        -0x40t
+        0x7bt
+        -0x42t
+        -0x42t
+        0x19t
+        0x55t
+        0x33t
+        -0x75t
+        0x5ct
+        -0x31t
+        0x3ct
+        0x65t
+        0x65t
+        0x72t
+        -0x5bt
+        -0x45t
+        -0x77t
+        0x7at
+        0x5et
+        0x11t
+        -0x28t
+        0x76t
+        -0x77t
+        -0x6ct
+        -0x80t
+        0x1et
+        0x6ft
+        0x46t
+        -0x53t
+        -0x53t
+        -0x76t
+        -0x67t
+        0x5dt
+        0x37t
+        -0x5dt
+        -0x7at
+        -0x7bt
+        -0xdt
+        -0x11t
+        0x7t
+        0x31t
+        0x7dt
+        -0x5et
+        -0x34t
+        0x57t
+        0x67t
+        0x1dt
+        0x43t
+        0x77t
+        0x3et
+        0x78t
+        -0xbt
+        -0x72t
+        0x16t
+        -0x34t
+        -0x45t
+        -0x4t
+        -0x29t
+        -0x30t
+        -0x3ct
+        0x1bt
+        -0x14t
+        0x42t
+        -0x7et
+        -0x7ct
+        0x59t
+        -0x72t
+        0x10t
+        -0x6et
+        0x10t
+        -0x7at
+        0x3dt
+        -0x8t
+        0x64t
+        0x63t
+        0x6dt
+        -0x9t
+        -0x62t
+        -0x7et
+        -0x5dt
+        0x4ct
+        -0x50t
+        -0x52t
+        0x0t
+        0x50t
+        0x77t
+        0x3dt
+        0x2at
+        -0x2bt
+        -0x57t
+        -0x53t
+        -0xbt
+        0x51t
+        -0x19t
+        -0x5et
+        0x44t
+        -0x2bt
+        -0x36t
+        -0x7t
+        0x42t
+        -0x7at
+        -0x74t
+        -0x36t
+        0x58t
+        -0xet
+        0x21t
+        -0xdt
+        0x61t
+        -0x1bt
+        0x26t
+        0x4at
+        -0x15t
+        -0x4t
+        -0x17t
+        -0xat
+        0x6bt
+        -0x2ct
+        0x1dt
+        -0x1dt
+        0x3ft
+        -0x33t
+        -0x2et
+        -0xdt
+        0x4dt
+        -0x3ct
+        0x13t
+        -0x7et
+        0xft
+        0x52t
+        -0x34t
+        0x0t
+        0x3dt
+        -0x75t
+        -0x7t
+        -0x60t
+        -0x11t
+        0x67t
+        0x22t
+        -0x7ct
+        -0x3at
+        -0xdt
+        0x16t
+        0x27t
+        -0x2at
+        -0x46t
+        -0x1et
+        -0x3ct
+        -0x15t
+        -0x23t
+        -0x36t
+        0x6t
+        -0x1ft
+        0x36t
+        -0x5ft
+        0x32t
+        0x41t
+        0x79t
+    .end array-data
+.end method
+
+.method public constructor <init>()V
+    .locals 0
+
+    .prologue
+    .line 13
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method public static a()Lcom/qihoo/gamecenter/sdk/common/c/j;
+    .locals 1
+
+    .prologue
+    .line 112
+    sget-object v0, Lcom/qihoo/gamecenter/sdk/common/c/j;->b:Lcom/qihoo/gamecenter/sdk/common/c/j;
+
+    return-object v0
+.end method
+
+
+# virtual methods
+.method public a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 1
+
+    .prologue
+    .line 170
+    const-string v0, "qihoo_https_cer_pre"
+
+    invoke-static {p1, p2, p3, v0}, Lcom/qihoo/gamecenter/sdk/common/k/p;->b(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 171
+    return-void
+.end method
+
+.method public a(Landroid/content/Context;)Z
+    .locals 14
+
+    .prologue
+    const-wide/16 v12, 0x0
+
+    const/4 v10, 0x3
+
+    const/4 v9, 0x2
+
+    const/4 v1, 0x1
+
+    const/4 v0, 0x0
+
+    .line 121
+    const-string v2, "HttpsCerManager"
+
+    new-array v3, v1, [Ljava/lang/Object;
+
+    const-string v4, "check should execUpdate cer"
+
+    aput-object v4, v3, v0
+
+    invoke-static {v2, v3}, Lcom/qihoo/gamecenter/sdk/common/k/d;->b(Ljava/lang/String;[Ljava/lang/Object;)I
+
+    .line 122
+    const-string v2, "https_cer_update_ts"
+
+    const-string v3, "qihoo_https_cer_pre"
+
+    invoke-static {p1, v2, v12, v13, v3}, Lcom/qihoo/gamecenter/sdk/common/k/p;->a(Landroid/content/Context;Ljava/lang/String;JLjava/lang/String;)J
+
+    move-result-wide v2
+
+    .line 123
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v4
+
+    .line 124
+    const-string v6, "HttpsCerManager"
+
+    const/4 v7, 0x4
+
+    new-array v7, v7, [Ljava/lang/Object;
+
+    const-string v8, "last: "
+
+    aput-object v8, v7, v0
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v8
+
+    aput-object v8, v7, v1
+
+    const-string v8, " now: "
+
+    aput-object v8, v7, v9
+
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v8
+
+    aput-object v8, v7, v10
+
+    invoke-static {v6, v7}, Lcom/qihoo/gamecenter/sdk/common/k/d;->b(Ljava/lang/String;[Ljava/lang/Object;)I
+
+    .line 125
+    cmp-long v6, v2, v12
+
+    if-lez v6, :cond_0
+
+    sub-long v2, v4, v2
+
+    const-wide/32 v6, 0x5265c00
+
+    cmp-long v2, v2, v6
+
+    if-lez v2, :cond_1
+
+    .line 127
+    :cond_0
+    const-string v2, "https_cer_update_ts"
+
+    const-string v3, "qihoo_https_cer_pre"
+
+    invoke-static {p1, v2, v4, v5, v3}, Lcom/qihoo/gamecenter/sdk/common/k/p;->b(Landroid/content/Context;Ljava/lang/String;JLjava/lang/String;)V
+
+    .line 128
+    const-string v2, "HttpsCerManager"
+
+    new-array v3, v10, [Ljava/lang/Object;
+
+    const-string v6, "update ts: "
+
+    aput-object v6, v3, v0
+
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v0
+
+    aput-object v0, v3, v1
+
+    const-string v0, " return true"
+
+    aput-object v0, v3, v9
+
+    invoke-static {v2, v3}, Lcom/qihoo/gamecenter/sdk/common/k/d;->b(Ljava/lang/String;[Ljava/lang/Object;)I
+
+    move v0, v1
+
+    .line 131
+    :cond_1
+    return v0
+.end method
+
+.method public a(Landroid/content/Context;Ljava/lang/String;)[B
+    .locals 6
+
+    .prologue
+    const/4 v1, 0x0
+
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
+
+    .line 142
+    const-string v0, "HttpsCerManager"
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const-string v3, "get cer for : "
+
+    aput-object v3, v2, v4
+
+    aput-object p2, v2, v5
+
+    invoke-static {v0, v2}, Lcom/qihoo/gamecenter/sdk/common/k/d;->b(Ljava/lang/String;[Ljava/lang/Object;)I
+
+    .line 146
+    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_4
+
+    .line 147
+    const-string v0, ""
+
+    const-string v2, "qihoo_https_cer_pre"
+
+    invoke-static {p1, p2, v0, v2}, Lcom/qihoo/gamecenter/sdk/common/k/p;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 150
+    :goto_0
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 151
+    const-string v0, "default"
+
+    const-string v2, ""
+
+    const-string v3, "qihoo_https_cer_pre"
+
+    invoke-static {p1, v0, v2, v3}, Lcom/qihoo/gamecenter/sdk/common/k/p;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 154
+    :cond_0
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    .line 156
+    const/4 v2, 0x0
+
+    :try_start_0
+    invoke-static {v0, v2}, Lcom/qihoo/gamecenter/sdk/common/k/b;->a(Ljava/lang/String;I)[B
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    move-object v0, v1
+
+    .line 162
+    :goto_1
+    if-eqz v0, :cond_1
+
+    array-length v1, v0
+
+    if-gtz v1, :cond_2
+
+    .line 163
+    :cond_1
+    const-string v0, "HttpsCerManager"
+
+    new-array v1, v5, [Ljava/lang/Object;
+
+    const-string v2, "use default client hard code cer!"
+
+    aput-object v2, v1, v4
+
+    invoke-static {v0, v1}, Lcom/qihoo/gamecenter/sdk/common/k/d;->b(Ljava/lang/String;[Ljava/lang/Object;)I
+
+    .line 164
+    sget-object v0, Lcom/qihoo/gamecenter/sdk/common/c/j;->a:[B
+
+    .line 166
+    :cond_2
+    return-object v0
+
+    .line 157
+    :catch_0
+    move-exception v0
+
+    .line 158
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+
+    :cond_3
+    move-object v0, v1
+
+    goto :goto_1
+
+    :cond_4
+    move-object v0, v1
+
+    goto :goto_0
+.end method
+
+.method public b(Landroid/content/Context;)Ljava/lang/String;
+    .locals 3
+
+    .prologue
+    .line 181
+    const-string v0, "https_cer_ver"
+
+    const-string v1, ""
+
+    const-string v2, "qihoo_https_cer_pre"
+
+    invoke-static {p1, v0, v1, v2}, Lcom/qihoo/gamecenter/sdk/common/k/p;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public b(Landroid/content/Context;Ljava/lang/String;)V
+    .locals 2
+
+    .prologue
+    .line 174
+    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 178
+    :goto_0
+    return-void
+
+    .line 177
+    :cond_0
+    const-string v0, "https_cer_ver"
+
+    const-string v1, "qihoo_https_cer_pre"
+
+    invoke-static {p1, v0, p2, v1}, Lcom/qihoo/gamecenter/sdk/common/k/p;->b(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+.end method

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout style="@style/flow_test_pay_border_layout">
+        <LinearLayout style="@style/flow_test_pay_layout">
+            <TextView android:textColor="@android:color/black" android:text="@string/app_key" style="@style/flow_test_pay_textview" />
+            <EditText android:enabled="false" android:textColor="@android:color/black" android:textColorHint="#ff999999" android:id="@id/value_app_key" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:inputType="none" style="@style/flow_test_pay_edittext" />
+        </LinearLayout>
+        <LinearLayout style="@style/flow_test_pay_layout">
+            <TextView android:textColor="@android:color/black" android:text="@string/app_channel" style="@style/flow_test_pay_textview" />
+            <EditText android:enabled="false" android:textColor="@android:color/black" android:textColorHint="#ff999999" android:id="@id/value_app_channel" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:inputType="none" style="@style/flow_test_pay_edittext" />
+        </LinearLayout>
+    </LinearLayout>
+    <Button android:textColor="@android:color/black" android:layout_gravity="center_horizontal" android:id="@id/btn_login" android:text="@string/login" style="@style/demo_btn" />
+</LinearLayout>

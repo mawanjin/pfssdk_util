@@ -1,0 +1,29 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: sdk_social_pay_demo_online.apk
+compressionType: false
+doNotCompress:
+- arsc
+- gzip
+- assets/libclearsdk.gzip.ver
+- dat
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: '127'
+  renameManifestPackage: null
+sdkInfo:
+  minSdkVersion: '8'
+  targetSdkVersion: '17'
+sharedLibrary: false
+unknownFiles:
+  com/qihoo/updatesdk/drawable/background_landscape.png: '8'
+  com/qihoo/updatesdk/drawable/background_portrait.png: '8'
+  com/qihoo/updatesdk/drawable/tips_flag.png: '8'
+  com/tencent/mm/sdk/platformtools/rep5402863540997075488.tmp: '8'
+usesFramework:
+  ids:
+  - 1
+  tag: null
+version: 2.2.3
+versionInfo:
+  versionCode: '544'
+  versionName: 1.8.0

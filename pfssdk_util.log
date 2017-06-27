@@ -1,0 +1,102 @@
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/main.py", line 22, in initPublicXml
+    file = open("public.xml1","r");
+IOError: [Errno 2] No such file or directory: 'public.xml1'
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/main.py", line 22, in initPublicXml
+    file = open("public.xml1","r");
+IOError: [Errno 2] No such file or directory: 'public.xml1'
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/main.py", line 185, in mergeSdkPublic
+    mergeFile = open("out/public.xml","r+");
+IOError: [Errno 2] No such file or directory: 'out/public.xml'
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/main.py", line 190, in mergeSdkPublic
+    mergeFile = open("out/public.xml","r+");
+IOError: [Errno 2] No such file or directory: 'out/public.xml'
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/main.py", line 187, in mergeSdkPublic
+    os.mkdir("out");
+OSError: [Errno 17] File exists: 'out'
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/main.py", line 187, in mergeSdkPublic
+    os.mkdir("out");
+OSError: [Errno 17] File exists: 'out'
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/main.py", line 191, in mergeSdkPublic
+    mergeFile = open("out/public.xml","r+");
+IOError: [Errno 2] No such file or directory: 'out/public.xml'
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/main.py", line 190, in mergeSdkPublic
+    for line in mergeFile:
+IOError: File not open for reading
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/main.py", line 190, in mergeSdkPublic
+    for line in mergeFile:
+IOError: File not open for reading
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/main.py", line 190, in mergeSdkPublic
+    for line in mergeFile:
+IOError: File not open for reading
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/main.py", line 187, in mergeSdkPublic
+    if (os.path.exists("out")==0):
+AttributeError: 'str' object has no attribute 'path'
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/main.py", line 194, in mergeSdkPublic
+    if self.tempFinalList.__contains__(line[0,line.find("id=\"")]):
+TypeError: string indices must be integers, not tuple
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/main.py", line 195, in mergeSdkPublic
+    if line.find("id=\"") and self.tempFinalList.__contains__(line[0,line.find("id=\"")]):
+TypeError: string indices must be integers, not tuple
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/main.py", line 195, in mergeSdkPublic
+    if line.find("id=\"") and self.tempFinalList.__contains__(line[0,line.find("id=\"")]):
+TypeError: string indices must be integers, not tuple
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/main.py", line 195, in mergeSdkPublic
+    if line.find("id=\"") and self.tempFinalList.__contains__(line[0,line.find("id=\"")]):
+TypeError: string indices must be integers, not tuple
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/main.py", line 195, in mergeSdkPublic
+    if line.find("id=\"") and self.tempFinalList.__contains__(line[0,line.find("id=\"")]):
+TypeError: string indices must be integers, not tuple
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/main.py", line 195, in mergeSdkPublic
+    if line.find("id=\"") and self.tempFinalList.__contains__(line[0,line.find("id=\"")]):
+TypeError: string indices must be integers, not tuple
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/main.py", line 195, in mergeSdkPublic
+    if line.find("id=\"") and self.tempFinalList.__contains__(line[0,line.find("id=\"")]):
+TypeError: string indices must be integers, not tuple
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/main.py", line 195, in mergeSdkPublic
+    if line.find("id=\"") and self.tempFinalList.__contains__(line[0,line.find("id=\"")]):
+TypeError: string indices must be integers, not tuple
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/main.py", line 194, in mergeSdkPublic
+    print("=====",line[0,line.find("id=\"")]);
+TypeError: string indices must be integers, not tuple
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/merge_public.py", line 111, in mergeSdkPublic
+    sdkPublicFile = open(self.sdkPublicFile,"r");
+AttributeError: Core instance has no attribute 'sdkPublicFile'
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/merge_public.py", line 196, in mergeSdkPublic
+    cpPublicFile = open("public.xml","r");
+IOError: [Errno 2] No such file or directory: 'public.xml'
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/merge_public.py", line 249, in mergeSdkPublic
+    FileUtils.rename(self.gamePath,self.gamePath.replace("public.xml","temp_public.xml"))
+  File "/Users/lala/Documents/workspace/python/utils.py", line 77, in rename
+    os.rename(current_file_name, new_file_name)
+OSError: [Errno 2] No such file or directory
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/merge_public.py", line 46, in initPublicXml
+    file = open(self.gamePath,"r");
+IOError: [Errno 2] No such file or directory: 'out/temp/1498133441.89/game1/res/values/public.xml'
+Traceback (most recent call last):
+  File "/Users/lala/Documents/workspace/python/merge_public.py", line 46, in initPublicXml
+    file = open(self.gamePath,"r");
+IOError: [Errno 2] No such file or directory: 'out/temp/1498133441.89/game1/res/values/public.xml'

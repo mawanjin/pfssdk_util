@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="18.0sp" android:textColor="@android:color/black" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="2.0dip" android:text="欢迎界面" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textColor="@color/demo_base_info" android:gravity="center" android:id="@id/sdk_ver" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="2.0dip" android:text="@string/uninitiated" />
+            <TextView android:textColor="@color/demo_base_info" android:gravity="center" android:id="@id/channel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="2.0dip" android:text="@string/uninitiated" />
+            <Button android:textColor="@color/demo_btn_text" android:id="@id/btn_flow_test" android:text="@string/flow_test" style="@style/demo_btn" />
+        </LinearLayout>
+        <TextView android:textColor="@android:color/black" android:textColorHint="#ff999999" android:id="@id/login_result" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:hint="未登录" />
+        <TextView android:textColor="@android:color/black" android:textColorHint="#ff999999" android:id="@id/try_result" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:hint="试玩账号状态:未进入" />
+    </LinearLayout>
+</ScrollView>

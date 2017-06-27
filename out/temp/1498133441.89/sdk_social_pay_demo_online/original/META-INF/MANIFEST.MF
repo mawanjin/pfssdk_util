@@ -1,0 +1,213 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Android)
+
+Name: assets/so/armeabi/safekeyboard.lib
+SHA1-Digest: oUjBw3V5XsbfZYwBYpmmLPDGkLA=
+
+Name: lib/x86_64/libqhsdk.so
+SHA1-Digest: vS1w5kc1Rv/8XoK6k5MCsLKdvl0=
+
+Name: assets/so/armeabi/pp_encrypt
+SHA1-Digest: FhSaJGXOk2ME8KQJ9udCJ/fgeOk=
+
+Name: assets/360sdk_res/res_544_7.dat
+SHA1-Digest: cI9ASmBYyH5PsXRynsh9HfIpprU=
+
+Name: lib/x86/libqhsdk.so
+SHA1-Digest: /09PaVf/qzcURtDDM0zD8eezhPY=
+
+Name: assets/so/armeabi-v7a/libskb.so
+SHA1-Digest: 0NcoOHK6CctQN9eKlHelCcwaPQw=
+
+Name: res/layout/sdk_main_activity.xml
+SHA1-Digest: t0QgEEEBbJNr6XT1clbvjsx6DB8=
+
+Name: assets/so/armeabi-v7a/safekeyboard.lib
+SHA1-Digest: EZ+h9F45OD7F7v0ipNk/1G7K+fM=
+
+Name: com/qihoo/updatesdk/drawable/background_landscape.png
+SHA1-Digest: PY+U6wX0kAJx2+BLQuK9Pw+ospM=
+
+Name: assets/so/armeabi-v7a/libframeso.so
+SHA1-Digest: JnrZbuE3YxJMT3LnJEx78bBgWUA=
+
+Name: res/layout/sdk_user_activity.xml
+SHA1-Digest: VodVVr9RMSZN6OqDPzxWDeIDQd8=
+
+Name: lib/armeabi-v7a/libqhsdk.so
+SHA1-Digest: lEDl+vhtuufZiQJDqCa5muyY2LM=
+
+Name: assets/so/arm64-v8a/libframeso.so
+SHA1-Digest: XmojdgjxpSlsog9V1b96+LJ2lI8=
+
+Name: assets/so/arm64-v8a/libplugin_phone.so
+SHA1-Digest: XETRgsu0tqqJTo1tlz5HLUgLYb0=
+
+Name: assets/so/armeabi/libframeso.so
+SHA1-Digest: WARGBUughOgn9ATgW6OWcoNaC8k=
+
+Name: res/layout/flow_test_login_activity.xml
+SHA1-Digest: LyRiVITBa96X8eCfFGdhm7a437I=
+
+Name: lib/arm64-v8a/libqhsdk.so
+SHA1-Digest: EflmcH8IpEPI0fu9UAzljCuwIQY=
+
+Name: assets/360sdk_res/res_544_4.dat
+SHA1-Digest: JJjjdxjMhY5gjxVYgVO7ZUxn9qI=
+
+Name: assets/so/x86_64/libframeso.so
+SHA1-Digest: Z8sVTavM4oTCB6mXtMDQ1PefG9k=
+
+Name: com/tencent/mm/sdk/platformtools/rep5402863540997075488.tmp
+SHA1-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: assets/so/arm64-v8a/libskb.so
+SHA1-Digest: l5P7m6fDTAA+uy1Uii8FQzG1aPM=
+
+Name: res/layout/share_weibo_layout.xml
+SHA1-Digest: H7ngLnYZo70IaZajRPIUsJPILX8=
+
+Name: assets/so/x86_64/libplugin_phone.so
+SHA1-Digest: lzKiAFaDWl7BmBcf/QRK5tMtb6E=
+
+Name: res/drawable/layout_border.xml
+SHA1-Digest: MSltTszfGLOqRM6nsQd7QjSyrB4=
+
+Name: assets/so/x86/libskb.so
+SHA1-Digest: Puo/Th4tnmwNnJR2bgv4SsvDnlQ=
+
+Name: com/qihoo/updatesdk/drawable/background_portrait.png
+SHA1-Digest: qwkYJUztvXM8vGRJqXnNoMKrc/0=
+
+Name: lib/mips/libqhsdk.so
+SHA1-Digest: BZcJPrcOd6Gl2xcl2ZFPLheT51o=
+
+Name: assets/360sdk_res/res_544_3.dat
+SHA1-Digest: +LRO8gcBaa/V2C4+V4y5uIu4nx4=
+
+Name: assets/so/armeabi/libskb.so
+SHA1-Digest: IlUhaB0XI2IxL+6pS2l+jsCRu6c=
+
+Name: res/xml/qihoo_game_sdk_authenticator.xml
+SHA1-Digest: NliK4h3Z54HjUddGDUrbch+Gu34=
+
+Name: res/drawable-hdpi-v4/qihoo360_a_orange_icon.png
+SHA1-Digest: RYM65+ia5um+aZ4fg5WuyvRNidE=
+
+Name: assets/so/x86/libframeso.so
+SHA1-Digest: kF/ux6sOY1I7y0D+OhbaV0kPSUs=
+
+Name: res/layout/send_msg_dlg_layout.xml
+SHA1-Digest: 8k4PbKcdBq88SGYQtIojpP5Hu7M=
+
+Name: resources.arsc
+SHA1-Digest: EaUv5pNIDcekCJZHntobNam4kZc=
+
+Name: res/layout/sdk_plugin_test_activity_listview.xml
+SHA1-Digest: asdi4gy6zpFUev8U5tYHk/E2wfY=
+
+Name: assets/360sdk_res/res_544_2.dat
+SHA1-Digest: ce8VI63TvXQFmsuktEonxHLpeys=
+
+Name: assets/so/armeabi-v7a/libplugin_phone.so
+SHA1-Digest: ktreNhiss/Ms8aHE1HbnUOkKeEU=
+
+Name: assets/so/armeabi/libplugin_phone.so
+SHA1-Digest: hazrP5IjWmsy8OfLirc3/oNNBy0=
+
+Name: res/drawable-hdpi-v4/qihoo_pup_bg.9.png
+SHA1-Digest: KctiiT8IdBhG5mzV23DCdPrhsRk=
+
+Name: AndroidManifest.xml
+SHA1-Digest: J3lEpzzC01BbDCkbuwwDTRPRwXs=
+
+Name: res/layout/flow_test_pay_activity.xml
+SHA1-Digest: ZNGqFzSiW2iWGPNjhY+NG5boZfo=
+
+Name: res/drawable-xxhdpi-v4/demo_icon.png
+SHA1-Digest: Zp7qeFHsFnGvMPT+AhVlnos7iYQ=
+
+Name: res/layout/sdk_welcome_activity.xml
+SHA1-Digest: B16L68+1c4QhTlzgl0wLVrK3PWM=
+
+Name: res/layout/sdk_plugin_test_activity.xml
+SHA1-Digest: 5+r54s3hJSAbDtSDrfmwMHJVgNk=
+
+Name: assets/libclear.process.filter
+SHA1-Digest: JtsDUx9DIykDpDE4HUKs3Z8p7gs=
+
+Name: assets/360sdk_res/res_544_1.dat
+SHA1-Digest: BdOfAP8x/81NRDvH4/zrtmJ1y5I=
+
+Name: assets/so/x86_64/libskb.so
+SHA1-Digest: wNKfEc2nleJrwNhaUWxMe0BktRs=
+
+Name: res/anim/activity_open_exit.xml
+SHA1-Digest: zZVBmY4W2py5J7+62PeorIkvPms=
+
+Name: com/qihoo/updatesdk/drawable/tips_flag.png
+SHA1-Digest: 2AXfgnqK6LvL8OakKBJHNrFNTpw=
+
+Name: assets/so/x86/pp_encrypt
+SHA1-Digest: gWMxYdDXkm/Pn2xBH7HBkRnAaHY=
+
+Name: assets/libclearsdk.gzip
+SHA1-Digest: TzevnXacRs4zhFp3aGjnyMl49Hs=
+
+Name: res/drawable/demo_icon.png
+SHA1-Digest: 6ATuQQhEvfEJbpbL7OwUapC1XLs=
+
+Name: res/anim/activity_close_enter.xml
+SHA1-Digest: pqEjpUPaCSa9M3OOlA7lnKnq23Q=
+
+Name: res/drawable-hdpi-v4/qihoo_loadingmotion.png
+SHA1-Digest: hTST3fax/mJOXYzwufqNKcQCdSk=
+
+Name: res/drawable-xhdpi-v4/demo_icon.png
+SHA1-Digest: Zp7qeFHsFnGvMPT+AhVlnos7iYQ=
+
+Name: res/drawable-mdpi-v4/demo_icon.png
+SHA1-Digest: 6ATuQQhEvfEJbpbL7OwUapC1XLs=
+
+Name: assets/360sdk_res/res_544_5.dat
+SHA1-Digest: c8tYrpZiY+CPv4IWnJIsOLzladY=
+
+Name: res/anim/activity_open_enter.xml
+SHA1-Digest: 06DNXtyuQI8MzQeWkOxX7il5wiE=
+
+Name: res/xml/qihoo_game_sdk_sync_adapter.xml
+SHA1-Digest: tRBfESmLS5wi0KRFhr8FdFTX3hg=
+
+Name: lib/armeabi/libqhsdk.so
+SHA1-Digest: g4YayK2KiI2dGHM3Vkn6cwpgwAE=
+
+Name: res/drawable-hdpi-v4/demo_icon.png
+SHA1-Digest: f6yw9t7etgMxmM4VcV9ZE/wAqJM=
+
+Name: assets/libclearsdk.gzip.ver
+SHA1-Digest: SvJyd3ygKyQbxEOzvf4suBCmr5Q=
+
+Name: assets/pinyindb/pinyin.txt
+SHA1-Digest: 1JF9bF/0I5jx1cO+JtStjAa5tBI=
+
+Name: assets/so/x86/libplugin_phone.so
+SHA1-Digest: zJkU0mgcGkiMTYqBrgYjal9yOEk=
+
+Name: res/xml-v11/qihoo_game_sdk_sync_adapter.xml
+SHA1-Digest: fgkkfop341Rb//FMzrRatOFswoo=
+
+Name: assets/so/armeabi-v7a/pp_encrypt
+SHA1-Digest: 7hwm+1lOlqDWYRwZQzJX3ik4xYQ=
+
+Name: res/anim/activity_close_exit.xml
+SHA1-Digest: kcAB0HD5xW8PGVLgQWat3g5IyGg=
+
+Name: classes.dex
+SHA1-Digest: 2ZlhdGFch8N6eDZBE5JI8SWg6Uc=
+
+Name: assets/so/x86/safekeyboard.lib
+SHA1-Digest: Raah4NFClDFvho+oBB6+jtq+Gz0=
+
+Name: lib/mips64/libqhsdk.so
+SHA1-Digest: s5E5JNL03TEhNdlaJddCcX8qOyU=
+
