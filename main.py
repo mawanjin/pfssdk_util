@@ -29,7 +29,7 @@ isNeedMergeValues_Styles = False
 isNeedMergeValues_Ids = False
 isNeedMergeValues_Public = False
 isNeedRebuildGameAPK = False
-
+configMetaList = []
 
 sdkApkPath=""
 gameApkPath=""
@@ -87,7 +87,7 @@ if timeFolder is not None:
     timestamp = timeFolder;
 
 def init():
-    global isNeedDecodeSdkAPK,isNeedDecodeGameAPK,isNeedCopyAssets,isNeedCopyLibSo,isNeedCopyUnknown,isNeedCopySmali,isNeedCopyAndroidManifest,isNeedCopyResCommon,isNeedMergeValues_Colors,isNeedMergeValues_Strings,isNeedMergeValues_Styles,isNeedMergeValues_Ids,isNeedMergeValues_Public,isNeedRebuildGameAPK,sdkApkPath,gameApkPath,timestamp
+    global isNeedDecodeSdkAPK,isNeedDecodeGameAPK,isNeedCopyAssets,isNeedCopyLibSo,isNeedCopyUnknown,isNeedCopySmali,isNeedCopyAndroidManifest,isNeedCopyResCommon,isNeedMergeValues_Colors,isNeedMergeValues_Strings,isNeedMergeValues_Styles,isNeedMergeValues_Ids,isNeedMergeValues_Public,isNeedRebuildGameAPK,sdkApkPath,gameApkPath,timestamp,configMetaList
     c = Config("sdkapks/"+sdkApkName+".ini")
     isNeedDecodeSdkAPK = eval(c.get("info","decodeSdkAPK"))
     isNeedDecodeGameAPK = eval(c.get("info","decodeGameAPK"))
@@ -107,7 +107,13 @@ def init():
     sdkApkPath = "out/temp/"+str(timestamp)+"/"+sdkApkName;
     gameApkPath = "out/temp/"+str(timestamp)+"/"+gameApkName;
 
+    configMetaList =[]
+    metas = c.getByField("metadata")
+    for meta in metas:
+        configMetaList.append(meta[1])
+
     return
+
 
 
 def decodeGameAPK():
@@ -194,6 +200,7 @@ def copySmali():
     return
 
 def mergeAndroidManifest():
+    global configMetaList
 
     if(isNeedCopyAndroidManifest):
         print("start merge androidManifest.xml......")
@@ -221,6 +228,9 @@ def mergeAndroidManifest():
     flagStrReceiver = False
 
     for line in sdkXML:
+
+        if(line.__contains__("android.intent.action.MAIN")):
+            continue
 
         if(flagStrPermission):
             sdkXmlPermissionList.append(line)
@@ -283,9 +293,8 @@ def mergeAndroidManifest():
 
     sdkXML.close()
 
-
-
-
+    for m in configMetaList:
+        sdkXmlContentList.append(m)
 
     # start to read
     gameXML = open(gameApkPath+"/AndroidManifest.xml")
@@ -579,6 +588,10 @@ def mergeValuePublicXML():
 
     print("end merge values/public.xml")
     return
+
+
+
+
 
 def rebuild():
     if(isNeedRebuildGameAPK):

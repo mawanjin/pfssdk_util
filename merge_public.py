@@ -54,29 +54,53 @@ class Core:
         for line in file:
             line = line.replace(" ","")
             if(line.__contains__("type=\"attr\"")):
-                self.attrValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
+                tempv = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]))
+                if(tempv>self.attrValue):
+                    self.attrValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
             elif(line.__contains__("type=\"drawable\"")):
-                self.drawableValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
+                tempv = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]))
+                if(tempv>self.drawableValue):
+                    self.drawableValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
             elif(line.__contains__("type=\"mipmap\"")):
-                self.mipmapValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
+                tempv = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]))
+                if(tempv>self.mipmapValue):
+                    self.mipmapValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
             elif(line.__contains__("type=\"layout\"")):
-                self.layoutValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
+                tempv = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]))
+                if(tempv>self.layoutValue):
+                    self.layoutValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
             elif(line.__contains__("type=\"anim\"")):
-                self.animValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
+                tempv = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]))
+                if(tempv>self.animValue):
+                    self.animValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
             elif(line.__contains__("type=\"string\"")):
-                self.stringValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
+                tempv = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]))
+                if(tempv>self.stringValue):
+                    self.stringValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
             elif(line.__contains__("type=\"dimen\"")):
-                self.dimenValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
+                tempv = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]))
+                if(tempv>self.dimenValue):
+                    self.dimenValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
             elif(line.__contains__("type=\"style\"")):
-                self.styleValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
+                tempv = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]))
+                if(tempv>self.styleValue):
+                    self.styleValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
             elif(line.__contains__("type=\"bool\"")):
-                self.boolValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
+                tempv = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]))
+                if(tempv>self.boolValue):
+                    self.boolValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
             elif(line.__contains__("type=\"color\"")):
-                self.colorValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
+                tempv = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]))
+                if(tempv>self.colorValue):
+                    self.colorValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
             elif(line.__contains__("type=\"id\"")):
-                self.idValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
+                tempv = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]))
+                if(tempv>self.idValue):
+                    self.idValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
             elif(line.__contains__("type=\"integer\"")):
-                self.integerValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
+                tempv = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]))
+                if(tempv>self.integerValue):
+                    self.integerValue = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]));
 
         print("read public.xml complete.");
         print("attrValue=",self.attrValue);

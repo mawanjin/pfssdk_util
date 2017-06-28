@@ -12,6 +12,7 @@ class Config:
         self.cf.readfp(fileopen)
         secs = self.cf.sections()
         print ("sections:", secs)
+
     def get(self, field, key):
         result = ""
         try:
@@ -20,6 +21,16 @@ class Config:
             traceback.print_exc();
             result = "";
         return result
+
+    def getByField(self, field):
+        result = ""
+        try:
+            result = self.cf.items(field)
+        except:
+            traceback.print_exc();
+            result = "";
+        return result
+
     def set(self, filed, key, value):
         try:
             self.cf.set(filed, key, value)
@@ -32,7 +43,7 @@ class FileUtils:
     @staticmethod
     def listDir(path):
         dirs = os.listdir(path)
-        print("The count of files in ["+path+"] is "+ str(dirs.__len__()))
+        # print("The count of files in ["+path+"] is "+ str(dirs.__len__()))
         return dirs
 
     @staticmethod
