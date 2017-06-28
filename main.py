@@ -110,7 +110,8 @@ def init():
     configMetaList =[]
     metas = c.getByField("metadata")
     for meta in metas:
-        configMetaList.append(meta[1])
+        configMetaList.append(meta[1]+"\n")
+        # print("xxxxx:"+meta[1]+"\n")
 
     return
 
