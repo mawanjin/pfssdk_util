@@ -22,6 +22,7 @@ isNeedCopyLibSo = False
 isNeedCopyUnknown = False
 isNeedCopySmali = False
 isNeedCopyAndroidManifest = False
+isNeedCopyMetadata = False
 isNeedCopyResCommon = False
 isNeedMergeValues_Colors = False
 isNeedMergeValues_Strings = False
@@ -33,6 +34,8 @@ configMetaList = []
 
 sdkApkPath=""
 gameApkPath=""
+basePath=""
+backupPath=""
 
 
 def get_user_paras():
@@ -87,7 +90,7 @@ if timeFolder is not None:
     timestamp = timeFolder;
 
 def init():
-    global isNeedDecodeSdkAPK,isNeedDecodeGameAPK,isNeedCopyAssets,isNeedCopyLibSo,isNeedCopyUnknown,isNeedCopySmali,isNeedCopyAndroidManifest,isNeedCopyResCommon,isNeedMergeValues_Colors,isNeedMergeValues_Strings,isNeedMergeValues_Styles,isNeedMergeValues_Ids,isNeedMergeValues_Public,isNeedRebuildGameAPK,sdkApkPath,gameApkPath,timestamp,configMetaList
+    global isNeedDecodeSdkAPK,isNeedDecodeGameAPK,isNeedCopyAssets,isNeedCopyLibSo,isNeedCopyUnknown,isNeedCopySmali,isNeedCopyAndroidManifest,isNeedCopyResCommon,isNeedMergeValues_Colors,isNeedMergeValues_Strings,isNeedMergeValues_Styles,isNeedMergeValues_Ids,isNeedMergeValues_Public,isNeedRebuildGameAPK,isNeedCopyMetadata,sdkApkPath,gameApkPath,timestamp,configMetaList,basePath,backupPath
     c = Config("sdkapks/"+sdkApkName+".ini")
     isNeedDecodeSdkAPK = eval(c.get("info","decodeSdkAPK"))
     isNeedDecodeGameAPK = eval(c.get("info","decodeGameAPK"))
@@ -103,26 +106,38 @@ def init():
     isNeedMergeValues_Ids = eval(c.get("info","values_ids"))
     isNeedMergeValues_Public = eval(c.get("info","values_public"))
     isNeedRebuildGameAPK = eval(c.get("info","rebuildGameAPK"))
+    isNeedCopyMetadata = eval(c.get("info","metadata"))
 
     sdkApkPath = "out/temp/"+str(timestamp)+"/"+sdkApkName;
     gameApkPath = "out/temp/"+str(timestamp)+"/"+gameApkName;
+    basePath = "out/temp/"+str(timestamp)
+    backupPath = basePath+"/bak"
 
-    configMetaList =[]
-    metas = c.getByField("metadata")
-    for meta in metas:
-        configMetaList.append(meta[1]+"\n")
-        # print("xxxxx:"+meta[1]+"\n")
+    if(isNeedCopyMetadata):
+        configMetaList =[]
+        metas = c.getByField("metadata")
+        for meta in metas:
+            configMetaList.append(meta[1]+"\n")
+            # print("xxxxx:"+meta[1]+"\n")
 
     return
 
 
 
 def decodeGameAPK():
+    global backupPath
+
     if(isNeedDecodeGameAPK):
         print("start decode gameAPK......")
     else:
         print("no need to decode gameAPK.")
         return
+
+    try:
+        #delete backup folder
+        FileUtils.delDir(backupPath)
+    except Exception as ex:
+        print("exception :{0}".format(str(ex)))
 
     gameApk = "games/"+gameApkName+".apk"
     cmd = "".join(["java -classpath ./libs/apktool.jar:. brut.apktool.Main d -f ",gameApk," -o out/temp/"+str(timestamp)+"/"+gameApkName]);
@@ -201,13 +216,34 @@ def copySmali():
     return
 
 def mergeAndroidManifest():
-    global configMetaList
+    global configMetaList,backupPath,gameApkPath
 
     if(isNeedCopyAndroidManifest):
         print("start merge androidManifest.xml......")
     else:
         print("no need to merge androidManifest.")
         return
+
+    #check folder "bak" whether exists
+
+    if (os.path.exists(backupPath)==0):
+        os.mkdir(backupPath);
+
+    #backing up file backAndroidManifest.xml
+    if(os.path.exists(backupPath+"/AndroidManifest.xml")==0):
+        print("AndroidManifest.xml is not exists.start backup...")
+        FileUtils.doCopy(gameApkPath+"/AndroidManifest.xml",backupPath)
+
+    if(os.path.exists(backupPath+"/AndroidManifest.xml")==0):
+        print("[error]backup AndroidManifest.xml failed.")
+        return
+
+
+    #recover file from backup
+    if(os.path.isfile(gameApkPath+"/AndroidManifest.xml")):
+        FileUtils.delFile(gameApkPath+"/AndroidManifest.xml")
+
+    FileUtils.doCopy(backupPath+"/AndroidManifest.xml",gameApkPath)
 
     gameXmlList = []
     sdkXmlPermissionList = []
@@ -404,46 +440,48 @@ def mergeValuesStrings():
     tempStringXMLPath = gameApkPath+"/res/values/temp_strings.xml";
     gameStringXMLBakPath = gameApkPath+"/res/values/strings.xml.bak"
 
-    gameColorsList = []
+    gameStringsList = []
 
-    gameColorsXML = open(gameStringXMLPath)
+    gameStringsXML = open(gameStringXMLPath)
 
-    for line in gameColorsXML:
-        gameColorsList.append(line.replace(" ",""))
+    for line in gameStringsXML:
+        distinctStr = line[0:line.find(">")].replace(" ","");
+        gameStringsList.append(distinctStr)
 
 
-    gameColorsXML.close()
+    gameStringsXML.close()
 
-    sdkColorList = []
-    sdkColorsXML = open(sdkApkPath+"/res/values/strings.xml")
+    sdkStringsList = []
+    sdkStringsXML = open(sdkApkPath+"/res/values/strings.xml")
 
     flagAppendStr=False
 
-    for line in sdkColorsXML:
+    for line in sdkStringsXML:
         str = line.replace(" ","")
 
         if(flagAppendStr):
-            sdkColorList.append(line)
+            sdkStringsList.append(line)
             if(str.__contains__("</string>")):
                 flagAppendStr = False
 
-        if(str.__contains__("<stringname=") and not gameColorsList.__contains__(str)):
-            sdkColorList.append(line)
+        if(str.__contains__("<stringname=") and not gameStringsList.__contains__(str[0:str.find(">")].replace(" ",""))):
+            sdkStringsList.append(line)
             if(not str.__contains__("</string>")):
                 flagAppendStr = True
 
-    sdkColorsXML.close()
+    sdkStringsXML.close()
 
     mergeFile = open(tempStringXMLPath,"w+");
     gameColorsXML = open(gameStringXMLPath)
     for line in gameColorsXML:
         if(line.__contains__("</resources>")):
-            for color in sdkColorList:
+            for color in sdkStringsList:
                 mergeFile.write(color)
 
             mergeFile.write(line)
         else:
             mergeFile.write(line)
+
 
     mergeFile.flush()
     mergeFile.close()
@@ -457,11 +495,29 @@ def mergeValuesStrings():
     return
 
 def mergeValueStyles():
+    global backupPath
+
     if(isNeedMergeValues_Styles):
         print("start to merge values/styles.xml......")
     else:
         print("no need to merge values/styles.xml.")
         return
+
+    #backing up file styles.xml
+    if(os.path.exists(backupPath+"/res/values/styles.xml")==0):
+        print("styles.xml is not exists.start backup...")
+        FileUtils.doCopy(gameApkPath+"/res/values/styles.xml",backupPath)
+
+    if(os.path.exists(backupPath+"/styles.xml")==0):
+        print("[error]backup styles.xml failed.")
+        return
+
+
+    #recover file from backup
+    if(os.path.isfile(gameApkPath+"/res/values/styles.xml")):
+        FileUtils.delFile(gameApkPath+"/res/values/styles.xml")
+
+    FileUtils.doCopy(backupPath+"/styles.xml",gameApkPath+"/res/values/")
 
     gameStyleXMLPath = gameApkPath+"/res/values/styles.xml"
     tempStyleXMLPath = gameApkPath+"/res/values/temp_styles.xml";
@@ -478,6 +534,7 @@ def mergeValueStyles():
         if(line.__contains__("<stylename")):
             gameStyleList.append(line)
 
+
     gameStyleXML.close()
 
     sdkStyleXML = open(sdkStyleXMLPath)
@@ -487,11 +544,15 @@ def mergeValueStyles():
         if(str.__contains__("<stylename") and not gameStyleList.__contains__(str)):
             appendFlag = True
             appendStyleList.append(line)
-        elif(str.__contains__("</style>" or str.__contains__("/>"))):
+        elif(gameStyleList.__contains__(str)):
             appendFlag = False
-            appendStyleList.append(line)
+        elif(str.__contains__("</style>" or str.__contains__("/>"))):
+            if(appendFlag):
+                appendFlag = False
+                appendStyleList.append(line)
         elif(appendFlag):
             appendStyleList.append(line)
+
 
     sdkStyleXML.close()
 
@@ -519,12 +580,30 @@ def mergeValueStyles():
 
 def mergeValueIds():
 
+    global backupPath
+
     if(isNeedMergeValues_Ids):
         print("start to merge values/ids.xml......")
     else:
         print("no need to merge values/ids.xml.")
         return
 
+
+    #backing up file ids.xml
+    if(os.path.exists(backupPath+"/ids.xml")==0):
+        print("ids.xml is not exists.start backup...")
+        FileUtils.doCopy(gameApkPath+"/res/values/ids.xml",backupPath)
+
+    if(os.path.exists(backupPath+"/ids.xml")==0):
+        print("[error]backup ids.xml failed.")
+        return
+
+
+    #recover file from backup
+    if(os.path.isfile(gameApkPath+"/res/values/ids.xml")):
+        FileUtils.delFile(gameApkPath+"/res/values/ids.xml")
+
+    FileUtils.doCopy(backupPath+"/ids.xml",gameApkPath+"/res/values/")
 
     gameIdsXMLPath = gameApkPath+"/res/values/ids.xml";
     tempIdsXMLPath = gameApkPath+"/res/values/temp_ids.xml";
@@ -576,11 +655,30 @@ def mergeValueIds():
 
 def mergeValuePublicXML():
 
+    global backupPath
+
     if(isNeedMergeValues_Public):
         print("start to merge values/public.xml......")
     else:
         print("no need to merge values/public.xml.")
         return
+
+
+    #backing up file backAndroidManifest.xml
+    if(os.path.exists(backupPath+"/public.xml")==0):
+        print("public.xml is not exists.start backup...")
+        FileUtils.doCopy(gameApkPath+"/res/values/public.xml",backupPath)
+
+    if(os.path.exists(backupPath+"/public.xml")==0):
+        print("[error]backup public.xml failed.")
+        return
+
+
+    #recover file from backup
+    if(os.path.isfile(gameApkPath+"/res/values/public.xml")):
+        FileUtils.delFile(gameApkPath+"/res/values/public.xml")
+
+    FileUtils.doCopy(backupPath+"/public.xml",gameApkPath+"/res/values/")
 
     gamePublicXMLPath = gameApkPath+"/res/values/public.xml";
     sdkPublicXMLPath = sdkApkPath+"/res/values/public.xml";
@@ -614,6 +712,8 @@ def rebuild():
     print("cmd is ",cmd)
     (status, output) = commands.getstatusoutput(cmd)
     print output
+
+
 
     FileUtils.delFile(apkpath)
 

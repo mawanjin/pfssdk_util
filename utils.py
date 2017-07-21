@@ -64,11 +64,19 @@ class FileUtils:
 
             if(os.path.isfile(file)):
 
-                if(not os.path.exists(dest)):
-                    # print("dest is not exist.start to copy from "+file +" to "+dest)
-                    shutil.copy(file,dest)
+
+                # print("111dest=",dest)
+                # print("isfile=",os.path.isfile(dest))
+                if(os.path.isfile(dest)==1 and os.path.exists(dest)):
+                    pass
                 else:
-                    print("[warn]dest is exist.do nothing."+dest)
+                    shutil.copy(file,dest)
+
+                # if(not os.path.exists(dest)):
+                #     print("dest file is not exist.start to copy from "+file +" to "+dest)
+                #
+                # else:
+                #     print("[warn]dest is exist.do nothing."+dest)
         except:
             traceback.print_exc();
 
@@ -90,3 +98,8 @@ class FileUtils:
     @staticmethod
     def delFile(file):
         os.remove(file)
+
+    @staticmethod
+    def delDir(dir):
+        shutil.rmtree(dir)
+

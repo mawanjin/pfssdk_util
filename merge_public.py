@@ -53,6 +53,9 @@ class Core:
 
         for line in file:
             line = line.replace(" ","")
+            distinctStr = line[0:line.find("id=\"")].replace(" ","");
+            self.tempFinalList.append(distinctStr)
+
             if(line.__contains__("type=\"attr\"")):
                 tempv = hex(eval(line[line.find("id=\"")+4:line.find("\"/>")]))
                 if(tempv>self.attrValue):
@@ -140,78 +143,85 @@ class Core:
             for str in sdkPublicFile:
                 ostr = str;
                 str = str.replace(" ","")
-                if(str.__contains__("type=\"attr\"")):
-                    originalValue = str[str.find("id=\"")+4:str.find("\"/>")];
-                    tempAttrValue = hex(long(eval(tempAttrValue)+1)).replace("L","");
-                    newStr = ostr.replace(originalValue,tempAttrValue);
-                    self.attrList.append(newStr);
 
-                elif(str.__contains__("type=\"drawable\"")):
-                    originalValue = str[str.find("id=\"")+4:str.find("\"/>")];
-                    tempDrawableValue = hex(long(eval(tempDrawableValue))+1).replace("L","");
-                    newStr = ostr.replace(originalValue,tempDrawableValue);
-                    self.drawableList.append(newStr);
+                distinctStr = str[0:str.find("id=\"")].replace(" ","");
+                if str.find("id=\"") and self.tempFinalList.__contains__(distinctStr):
+                    # print("===="+str[0:str.find("id=\"")].replace(" ",""))
+                    continue
+                else:
+                        if(str.__contains__("type=\"attr\"")):
+                            originalValue = str[str.find("id=\"")+4:str.find("\"/>")];
+                            tempAttrValue = hex(long(eval(tempAttrValue)+1)).replace("L","");
+                            newStr = ostr.replace(originalValue,tempAttrValue);
+                            self.attrList.append(newStr);
 
-                elif(str.__contains__("type=\"mipmap\"")):
-                    originalValue = str[str.find("id=\"")+4:str.find("\"/>")]
-                    tempMipmapValue = hex(long(eval(tempMipmapValue))+1).replace("L","");
-                    newStr = ostr.replace(originalValue,tempMipmapValue);
-                    self.mipmapList.append(newStr);
+                        elif(str.__contains__("type=\"drawable\"")):
+                            originalValue = str[str.find("id=\"")+4:str.find("\"/>")];
+                            tempDrawableValue = hex(long(eval(tempDrawableValue))+1).replace("L","");
+                            newStr = ostr.replace(originalValue,tempDrawableValue);
+                            self.drawableList.append(newStr);
 
-                elif(str.__contains__("type=\"layout\"")):
-                    originalValue = str[str.find("id=\"")+4:str.find("\"/>")]
-                    tempLayoutValue = hex(long(eval(tempLayoutValue))+1).replace("L","");
-                    newStr = ostr.replace(originalValue,tempLayoutValue);
-                    self.layoutList.append(newStr);
+                        elif(str.__contains__("type=\"mipmap\"")):
+                            originalValue = str[str.find("id=\"")+4:str.find("\"/>")]
+                            tempMipmapValue = hex(long(eval(tempMipmapValue))+1).replace("L","");
+                            newStr = ostr.replace(originalValue,tempMipmapValue);
+                            self.mipmapList.append(newStr);
 
-                elif(str.__contains__("type=\"anim\"")):
-                    originalValue = str[str.find("id=\"")+4:str.find("\"/>")]
-                    tempAnimValue = hex(long(eval(tempAnimValue))+1).replace("L","");
-                    newStr = ostr.replace(originalValue,tempAnimValue);
-                    self.animList.append(newStr);
+                        elif(str.__contains__("type=\"layout\"")):
+                            originalValue = str[str.find("id=\"")+4:str.find("\"/>")]
+                            tempLayoutValue = hex(long(eval(tempLayoutValue))+1).replace("L","");
+                            newStr = ostr.replace(originalValue,tempLayoutValue);
+                            self.layoutList.append(newStr);
 
-                elif(str.__contains__("type=\"string\"")):
-                    originalValue = str[str.find("id=\"")+4:str.find("\"/>")]
-                    tempStringValue = hex(long(eval(tempStringValue))+1).replace("L","");
-                    newStr = ostr.replace(originalValue,tempStringValue);
-                    self.stringList.append(newStr);
+                        elif(str.__contains__("type=\"anim\"")):
+                            originalValue = str[str.find("id=\"")+4:str.find("\"/>")]
+                            tempAnimValue = hex(long(eval(tempAnimValue))+1).replace("L","");
+                            newStr = ostr.replace(originalValue,tempAnimValue);
+                            self.animList.append(newStr);
 
-                elif(str.__contains__("type=\"dimen\"")):
-                    originalValue = str[str.find("id=\"")+4:str.find("\"/>")]
-                    tempDimenValue = hex(long(eval(tempDimenValue))+1).replace("L","");
-                    newStr = ostr.replace(originalValue,tempDimenValue);
-                    self.dimenList.append(newStr);
+                        elif(str.__contains__("type=\"string\"")):
+                            originalValue = str[str.find("id=\"")+4:str.find("\"/>")]
+                            tempStringValue = hex(long(eval(tempStringValue))+1).replace("L","");
+                            newStr = ostr.replace(originalValue,tempStringValue);
+                            self.stringList.append(newStr);
 
-                elif(str.__contains__("type=\"style\"")):
-                    originalValue = str[str.find("id=\"")+4:str.find("\"/>")]
-                    tempStyleValue = hex(long(eval(tempStyleValue))+1).replace("L","");
-                    newStr = ostr.replace(originalValue,tempStyleValue);
-                    self.styleList.append(newStr);
+                        elif(str.__contains__("type=\"dimen\"")):
+                            originalValue = str[str.find("id=\"")+4:str.find("\"/>")]
+                            tempDimenValue = hex(long(eval(tempDimenValue))+1).replace("L","");
+                            newStr = ostr.replace(originalValue,tempDimenValue);
+                            self.dimenList.append(newStr);
 
-                elif(str.__contains__("type=\"bool\"")):
-                    originalValue = str[str.find("id=\"")+4:str.find("\"/>")]
-                    tempBoolValue = hex(long(eval(tempBoolValue))+1).replace("L","");
-                    newStr = ostr.replace(originalValue,tempBoolValue);
-                    self.boolList.append(newStr);
+                        elif(str.__contains__("type=\"style\"")):
+                            originalValue = str[str.find("id=\"")+4:str.find("\"/>")]
+                            tempStyleValue = hex(long(eval(tempStyleValue))+1).replace("L","");
+                            newStr = ostr.replace(originalValue,tempStyleValue);
+                            self.styleList.append(newStr);
+
+                        elif(str.__contains__("type=\"bool\"")):
+                            originalValue = str[str.find("id=\"")+4:str.find("\"/>")]
+                            tempBoolValue = hex(long(eval(tempBoolValue))+1).replace("L","");
+                            newStr = ostr.replace(originalValue,tempBoolValue);
+                            self.boolList.append(newStr);
 
 
-                elif(str.__contains__("type=\"color\"")):
-                    originalValue = str[str.find("id=\"")+4:str.find("\"/>")]
-                    tempColorValue = hex(long(eval(tempColorValue))+1).replace("L","");
-                    newStr = ostr.replace(originalValue,tempColorValue);
-                    self.colorList.append(newStr);
+                        elif(str.__contains__("type=\"color\"")):
+                            originalValue = str[str.find("id=\"")+4:str.find("\"/>")]
+                            tempColorValue = hex(long(eval(tempColorValue))+1).replace("L","");
+                            newStr = ostr.replace(originalValue,tempColorValue);
+                            self.colorList.append(newStr);
 
-                elif(str.__contains__("type=\"id\"")):
-                    originalValue = str[str.find("id=\"")+4:str.find("\"/>")]
-                    tempIdValue = hex(long(eval(tempIdValue))+1).replace("L","");
-                    newStr = ostr.replace(originalValue,tempIdValue);
-                    self.idList.append(newStr);
+                        elif(str.__contains__("type=\"id\"")):
+                            originalValue = str[str.find("id=\"")+4:str.find("\"/>")]
+                            tempIdValue = hex(long(eval(tempIdValue))+1).replace("L","");
+                            newStr = ostr.replace(originalValue,tempIdValue);
+                            self.idList.append(newStr);
 
-                elif(str.__contains__("type=\"integer\"")):
-                    originalValue = str[str.find("integer=\"")+4:str.find("\"/>")]
-                    tempIntegerValue = hex(long(eval(tempIntegerValue))+1).replace("L","");
-                    newStr = ostr.replace(originalValue,tempIntegerValue);
-                    self.integerList.append(newStr);
+
+                        elif(str.__contains__("type=\"integer\"")):
+                            originalValue = str[str.find("integer=\"")+4:str.find("\"/>")]
+                            tempIntegerValue = hex(long(eval(tempIntegerValue))+1).replace("L","");
+                            newStr = ostr.replace(originalValue,tempIntegerValue);
+                            self.integerList.append(newStr);
 
 
 
@@ -221,16 +231,19 @@ class Core:
 
             mergeFile = open(self.gamePath.replace("public.xml","temp_public.xml"),"w+");
             cpPublicFile = open(self.gamePath,"r");
+
+            self.tempFinalList = []
+
             for line in cpPublicFile:
 
                 distinctStr = line[0:line.find("id=\"")].replace(" ","");
+
                 if line.find("id=\"") and self.tempFinalList.__contains__(distinctStr):
-                    print("===="+line[0:line.find("id=\"")].replace(" ",""))
+                    # print("===="+line[0:line.find("id=\"")].replace(" ",""))
                     continue
                 else:
                     mergeFile.write(line);
                     self.tempFinalList.append(distinctStr);
-
 
                     if(line.__contains__("type=\"attr\"") and line.__contains__(self.attrValue)):
                         for s in self.attrList:
