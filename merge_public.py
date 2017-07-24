@@ -239,7 +239,7 @@ class Core:
                 distinctStr = line[0:line.find("id=\"")].replace(" ","");
 
                 if line.find("id=\"") and self.tempFinalList.__contains__(distinctStr):
-                    # print("===="+line[0:line.find("id=\"")].replace(" ",""))
+                    print("exists distinctStr="+distinctStr)
                     continue
                 else:
                     mergeFile.write(line);
@@ -255,7 +255,7 @@ class Core:
                         for s in self.mipmapList:
                             mergeFile.write(s);
                     elif(line.__contains__("type=\"layout\"") and line.__contains__(self.layoutValue)):
-                        for s in self.mipmapList:
+                        for s in self.layoutList:
                             mergeFile.write(s);
                     elif(line.__contains__("type=\"anim\"") and line.__contains__(self.animValue)):
                         for s in self.animList:

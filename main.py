@@ -30,12 +30,18 @@ isNeedMergeValues_Styles = False
 isNeedMergeValues_Ids = False
 isNeedMergeValues_Public = False
 isNeedRebuildGameAPK = False
+isNeedSplash = False
+isNeedProvider = False
 configMetaList = []
+configSplashList = []
+configProviderList = []
 
 sdkApkPath=""
 gameApkPath=""
 basePath=""
 backupPath=""
+
+packageName=""
 
 
 def get_user_paras():
@@ -90,7 +96,7 @@ if timeFolder is not None:
     timestamp = timeFolder;
 
 def init():
-    global isNeedDecodeSdkAPK,isNeedDecodeGameAPK,isNeedCopyAssets,isNeedCopyLibSo,isNeedCopyUnknown,isNeedCopySmali,isNeedCopyAndroidManifest,isNeedCopyResCommon,isNeedMergeValues_Colors,isNeedMergeValues_Strings,isNeedMergeValues_Styles,isNeedMergeValues_Ids,isNeedMergeValues_Public,isNeedRebuildGameAPK,isNeedCopyMetadata,sdkApkPath,gameApkPath,timestamp,configMetaList,basePath,backupPath
+    global isNeedDecodeSdkAPK,isNeedDecodeGameAPK,isNeedCopyAssets,isNeedCopyLibSo,isNeedCopyUnknown,isNeedCopySmali,isNeedCopyAndroidManifest,isNeedCopyResCommon,isNeedMergeValues_Colors,isNeedMergeValues_Strings,isNeedMergeValues_Styles,isNeedMergeValues_Ids,isNeedMergeValues_Public,isNeedRebuildGameAPK,isNeedCopyMetadata,isNeedSplash,isNeedProvider,sdkApkPath,gameApkPath,timestamp,configMetaList,configSplashList,configProviderList,basePath,backupPath
     c = Config("sdkapks/"+sdkApkName+".ini")
     isNeedDecodeSdkAPK = eval(c.get("info","decodeSdkAPK"))
     isNeedDecodeGameAPK = eval(c.get("info","decodeGameAPK"))
@@ -107,11 +113,15 @@ def init():
     isNeedMergeValues_Public = eval(c.get("info","values_public"))
     isNeedRebuildGameAPK = eval(c.get("info","rebuildGameAPK"))
     isNeedCopyMetadata = eval(c.get("info","metadata"))
+    isNeedSplash = eval(c.get("info","splash"))
+    isNeedProvider = eval(c.get("info","provider"))
 
     sdkApkPath = "out/temp/"+str(timestamp)+"/"+sdkApkName;
     gameApkPath = "out/temp/"+str(timestamp)+"/"+gameApkName;
     basePath = "out/temp/"+str(timestamp)
     backupPath = basePath+"/bak"
+
+    setPackageName();
 
     if(isNeedCopyMetadata):
         configMetaList =[]
@@ -119,6 +129,20 @@ def init():
         for meta in metas:
             configMetaList.append(meta[1]+"\n")
             # print("xxxxx:"+meta[1]+"\n")
+
+    if(isNeedSplash):
+        configSplashList =[]
+        metas = c.getByField("splash")
+        for meta in metas:
+            configSplashList.append((meta[1]+"\n").strip())
+
+    if(isNeedProvider):
+        configProviderList =[]
+        metas = c.getByField("provider")
+        for meta in metas:
+            configProviderList.append(meta[1]+"\n")
+
+
 
     return
 
@@ -216,7 +240,7 @@ def copySmali():
     return
 
 def mergeAndroidManifest():
-    global configMetaList,backupPath,gameApkPath
+    global configMetaList,backupPath,gameApkPath,configSplashList,isNeedSplash,configProviderList,isNeedProvider
 
     if(isNeedCopyAndroidManifest):
         print("start merge androidManifest.xml......")
@@ -245,6 +269,8 @@ def mergeAndroidManifest():
 
     FileUtils.doCopy(backupPath+"/AndroidManifest.xml",gameApkPath)
 
+    setPackageName();
+
     gameXmlList = []
     sdkXmlPermissionList = []
     sdkXmlContentList = []
@@ -266,7 +292,7 @@ def mergeAndroidManifest():
 
     for line in sdkXML:
 
-        if(line.__contains__("android.intent.action.MAIN")):
+        if(line.__contains__("android.intent.action.MAIN") and not isNeedSplash):
             continue
 
         if(flagStrPermission):
@@ -337,7 +363,10 @@ def mergeAndroidManifest():
     gameXML = open(gameApkPath+"/AndroidManifest.xml")
     mergeFile = open(gameApkPath+"/temp_AndroidManifest.xml","w+");
 
+    tagProvider = False
+
     for line in gameXML:
+
 
         if(line.__contains__("<application")):
             for p in sdkXmlPermissionList:
@@ -346,10 +375,31 @@ def mergeAndroidManifest():
 
         elif(line.__contains__("</application>")):
             for c in sdkXmlContentList:
+                if(isNeedProvider):
+                    t = str(configProviderList[0]).replace("\n","")
+                    if(c.__contains__("<provider") and c.__contains__(t)):
+                        c = c.replace(t,packageName)
+                    elif(c.__contains__("<provider")):
+                        tagProvider = True
+                    elif(tagProvider and c.__contains__(configProviderList[0])):
+                        c = c.replace(configProviderList[0],packageName)
+                    elif(c.__contains__("/>")):
+                        tagProvider = False
+
                 mergeFile.write(c)
             mergeFile.write(line)
-
         else:
+            if(line.__contains__("android.intent.action.MAIN")):
+                if(isNeedSplash):
+                    line = line.replace("android.intent.action.MAIN",configSplashList[0])
+
+            if(line.__contains__("android.intent.category.LAUNCHER")):
+                if(isNeedSplash):
+                    line = "<category android:name=\"android.intent.category.DEFAULT\" />"
+
+
+
+
             mergeFile.write(line)
 
     mergeFile.close()
@@ -720,7 +770,23 @@ def rebuild():
     print("end rebuild gameAPK.")
     return
 
+def setPackageName():
+    global packageName,backupPath
 
+    if(os.path.exists(backupPath+"/AndroidManifest.xml")==0):
+        return
+    else:
+        xml = open(backupPath+"/AndroidManifest.xml")
+        for line in xml:
+
+            if(line.__contains__("package=")):
+                s = line.find("package=\"")+9;
+                e = line.find("\"",s)
+                packageName = line[s:e];
+                break
+
+    print("packageName",packageName)
+    return
 
 def main():
     init()
